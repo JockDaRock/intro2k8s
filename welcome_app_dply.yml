@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: welcome-app
+  name: welcome-app-yml
 spec:
   replicas: 3
   template:
     metadata:
       labels:
-        app: welcome-app
+        app: welcome-app-yml
     spec:
       containers:
-      - name: welcome-app
+      - name: welcome-app-yml
         image: jockdarock/welcome_app:latest
         ports:
         - containerPort: 5555

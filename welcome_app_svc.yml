@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: welcome-app-svc
   labels:
-    app: welcome-app
+    app: welcome-app-yml
 spec:
   type: LoadBalancer
   ports:
@@ -11,4 +11,4 @@ spec:
     protocol: TCP
     targetPort: 5555
   selector:
-    app: welcome-app
+    app: welcome-app-yml

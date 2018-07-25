@@ -27,9 +27,17 @@ If it doesn't look like this...
 
 * Let's check to see if our service is exposed on to the world on our k8s cluster. `kubectl get services` It's not quite ready yet, but there is a way we can leave it up on the console until it is ready.  `kubectl get services -w`
 
-* Let's also check the logs of our  to see what we see there.  `kubectl logs services welcome-app`
+* Let's also check the logs of our  to see what we see there.  First we need to list our pods. `kubectl get pods` Copy the name of the **welcome-app** pod.
+
+Then type... `kubectl logs welcome-app-<UID>`
 
 * Its great we got our web app running, but what if our pod dies or we want the app to be able to handle a bit more load.  Let's scale our app up.  `kubectl scale --replicas=3 deployment welcome-app`
+
+* Now let's clean up our service and deployments.
+
+`kubectl delete deployment welcome-app`
+
+`kubectl delete service welcome-app`
 
 ### Deploy Apps - k8s definition Yaml
 
@@ -42,5 +50,7 @@ If it doesn't look like this...
 * Now let's look at our service yaml. `code welcome_app_svc.yml`
 
 Now that we understand how we define services in our yaml definition, let's expose our service so we can access our web app.  `kubectl create -f welcome_app_svc.yml`
+
+Now for a bigger more fun application... serverless on kubernetes w/ OpenFaaS
 
  
