@@ -5,7 +5,7 @@ metadata:
   labels:
     app: welcome-app-yml
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 5555
     protocol: TCP
